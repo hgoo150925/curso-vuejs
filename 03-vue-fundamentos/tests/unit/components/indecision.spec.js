@@ -7,6 +7,19 @@ describe('Indecision component', () => {
   let wrapper;
   let spy; // Spy son espias que estan pendientes de cualquier suceso
   let getAnswerSpy;
+
+  global.fetch = vi.fn(() =>
+    Promise.resolve({
+      json: () =>
+        Promise.resolve({
+          // Promise.resolve resuelve lo que la peticion va a retornar
+          answer: 'yes',
+          forced: false,
+          image: 'https://yesno.wtf/assets/yes/2.gif',
+        }),
+    })
+  );
+
   beforeEach(() => {
     wrapper = shallowMount(Indecision);
     spy = vi.spyOn(console, 'log');
@@ -46,7 +59,14 @@ describe('Indecision component', () => {
     expect(getAnswerSpy).toHaveBeenCalledTimes(1);
   });
 
-  test('pruebas en getAnswer', () => {});
+  test('pruebas en getAnswer', async () => {
+    await wrapper.vm.getAnswer();
+
+    const img = wrapper.find('img');
+    expect(img.exists()).toBeTruthy();
+    expect(wrapper.vm.image).toBe('https://yesno.wtf/assets/yes/2.gif');
+    expect(wrapper.vm.answer).toBe('Si');
+  });
 
   test('pruebas en getAnswer - Fallo en el API', () => {});
 });
