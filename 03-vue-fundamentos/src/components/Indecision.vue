@@ -44,15 +44,16 @@ export default {
 
   methods: {
     async getAnswer() {
-      this.answer = 'Pensando...';
       try {
+        this.answer = 'Pensando...';
         const { answer, image } = await fetch('https://yesno.wtf/api').then(
           res => res.json()
         );
         this.answer = answer === 'yes' ? 'Si' : 'No';
         this.image = image;
       } catch (error) {
-        this.answer = `Error! Could not reach the API. ${error}`;
+        this.answer = `No se pudo cargar el API.`;
+        this.image = null;
       }
     },
   },
