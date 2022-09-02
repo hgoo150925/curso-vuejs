@@ -6,10 +6,12 @@ import Indecision from '../../../src/components/Indecision.vue';
 describe('Indecision component', () => {
   let wrapper;
   let spy; // Spy son espias que estan pendientes de cualquier suceso
-
+  let getAnswerSpy;
   beforeEach(() => {
     wrapper = shallowMount(Indecision);
     spy = vi.spyOn(console, 'log');
+    // vm -> https://v1.test-utils.vuejs.org/api/wrapper/
+    getAnswerSpy = vi.spyOn(wrapper.vm, 'getAnswer');
   });
 
   test('debe de ser identico con el snapshot', () => {
@@ -21,11 +23,9 @@ describe('Indecision component', () => {
   });
 
   test('escribir en el input no debe de disparar nada (console.log)', async () => {
-    // vm -> https://v1.test-utils.vuejs.org/api/wrapper/
-    const getAnswerSpy = vi.spyOn(wrapper.vm, 'getAnswer');
     const input = wrapper.find('input');
     // establecer valor al input
-    await input.setValue('Hola mundo');
+    await input.setValue('Hi Nuxt');
     // verificar que el spy haya sido llamado
     // expect(spy).toHaveBeenCalled();
     // verificar que el spy haya sido llamado por lo menos 1 vez
@@ -35,7 +35,14 @@ describe('Indecision component', () => {
     expect(getAnswerSpy).not.toHaveBeenCalled();
   });
 
-  test('escribir el simbolo de "?" debe disparar el fetch', () => {});
+  test('escribir el simbolo de "?" debe disparar el getAnswer', async () => {
+    const input = wrapper.find('input');
+    // establecer valor al input
+    await input.setValue("What's up?");
+
+    // verificar que la funcion getAnswer haya sido llamado 1 vez si el input contiene "?"
+    expect(getAnswerSpy).toHaveBeenCalledTimes(1);
+  });
 
   test('pruebas en getAnswer', () => {});
 
