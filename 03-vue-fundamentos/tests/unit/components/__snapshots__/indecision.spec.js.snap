@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`Indecision component > debe de ser identico con el snapshot 1`] = `
+"<!--v-if-->
+<div class=\\"bg-dark\\" data-v-4a8fca50=\\"\\"></div>
+<div class=\\"indecision-container\\" data-v-4a8fca50=\\"\\"><input type=\\"text\\" placeholder=\\"Hazme una pregunta\\" data-v-4a8fca50=\\"\\">
+  <p data-v-4a8fca50=\\"\\">Recuerda terminar con un signo de interrogacion</p><!-- isValidQuestion si la pregunta es valida, se muestra la pregunta -->
+  <!--v-if-->
+</div>"
+`;
