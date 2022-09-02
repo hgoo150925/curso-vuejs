@@ -1,12 +1,15 @@
-import { describe, test, expect, beforeEach } from 'vitest';
+import { describe, test, expect, beforeEach, vi } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
 
 import Indecision from '../../../src/components/Indecision.vue';
 
 describe('Indecision component', () => {
   let wrapper;
+  let spy; // Spy son espias que estan pendientes de cualquier suceso
+
   beforeEach(() => {
     wrapper = shallowMount(Indecision);
+    spy = vi.spyOn(console, 'log');
   });
 
   test('debe de ser identico con el snapshot', () => {
@@ -17,10 +20,24 @@ describe('Indecision component', () => {
     // yarn test -u
   });
 
-  test('p debe tener el valor por defecto "Recuerda terminar con un signo de interrogacion"', () => {
-    const parrafo = wrapper.find('p');
-    expect(parrafo.text()).toBe(
-      'Recuerda terminar con un signo de interrogacion'
-    );
+  test('escribir en el input no debe de disparar nada (console.log)', async () => {
+    // vm -> https://v1.test-utils.vuejs.org/api/wrapper/
+    const getAnswerSpy = vi.spyOn(wrapper.vm, 'getAnswer');
+    const input = wrapper.find('input');
+    // establecer valor al input
+    await input.setValue('Hola mundo');
+    // verificar que el spy haya sido llamado
+    // expect(spy).toHaveBeenCalled();
+    // verificar que el spy haya sido llamado por lo menos 1 vez
+    expect(spy).toHaveBeenCalledTimes(1);
+
+    // verificar que la funcion getAnswer no haya sido llamado
+    expect(getAnswerSpy).not.toHaveBeenCalled();
   });
+
+  test('escribir el simbolo de "?" debe disparar el fetch', () => {});
+
+  test('pruebas en getAnswer', () => {});
+
+  test('pruebas en getAnswer - Fallo en el API', () => {});
 });

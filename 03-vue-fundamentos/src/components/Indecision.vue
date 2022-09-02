@@ -31,6 +31,7 @@ export default {
   watch: {
     question(newValue, oldValue) {
       this.isValidQuestion = false;
+      console.log({ newValue });
       // Si el nuevo valor de question no incluye un singo de interrogacion, que no haga nada
       if (!newValue.includes('?')) {
         return;
