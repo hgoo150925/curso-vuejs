@@ -12,6 +12,8 @@ describe('Indecision component', () => {
     spy = vi.spyOn(console, 'log');
     // vm -> https://v1.test-utils.vuejs.org/api/wrapper/
     getAnswerSpy = vi.spyOn(wrapper.vm, 'getAnswer');
+
+    vi.clearAllMocks();
   });
 
   test('debe de ser identico con el snapshot', () => {
