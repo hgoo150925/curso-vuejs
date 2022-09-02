@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="https://unpkg.com/vue@3"></script>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="newQuote" @keypress.enter="addQuote" />
+      <hr />
+      <ul>
+        <li v-for="{quote, author}, index in quotes" :key="index">
+          <span>{{quote}}</span>
+          <!-- tambien se puede utilizar v-show="author" -->
+          <blockquote v-if="author">-{{author}}</blockquote>
+        </li>
+      </ul>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

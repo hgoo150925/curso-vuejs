@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="https://unpkg.com/vue@3"></script>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- {{message}} -> representacion declarativa en Vue -->
+      <!-- la representacion declarativa soporta ternarios, arrays, etc -->
+      <!-- <p>{{message}}</p> -->
+      <blockquote>{{quote}}</blockquote>
+      <p>-{{author}}</p>
+
+      <button @click="changeQuote">Change Quote</button>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
