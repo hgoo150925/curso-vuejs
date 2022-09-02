@@ -1,0 +1,23 @@
+{
+  "name": "indecision-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "jest": "^29.0.1",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.3",
+    "@vue/test-utils": "^2.0.2",
+    "happy-dom": "^6.0.4",
+    "vite": "^3.0.7",
+    "vitest": "^0.22.1"
+  }
+}
