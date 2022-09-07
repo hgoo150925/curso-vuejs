@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`PokemonPage Component > debe de hacer match con el snapshot 1`] = `
+"<!-- Si no existe un pokemon se muestra el h1 -->
+<h1>Espere por favor...</h1>"
+`;
+
+exports[`PokemonPage Component > debe de hacer match con el snapshot cuando cargan los pokemons 1`] = `
+"<!-- Si no existe un pokemon se muestra el h1 -->
+<!-- Si existe un pokemon se renderiza todo el contenido en el div -->
+<div>
+  <h1>¿Quien es este Pokemon?</h1>
+  <pokemon-picture-stub pokemonid=\\"5\\" showpokemon=\\"false\\"></pokemon-picture-stub><!-- selection es un $emit -->
+  <!-- estoy escuchando el evento $emit (selection) que llama al metodo chechAnswer() -->
+  <pokemon-options-stub pokemons=\\"[object Object],[object Object],[object Object],[object Object]\\"></pokemon-options-stub><!-- template se utiliza en vez de div -->
+  <!-- si showAnswer es true se renderiza el titulo y el boton -->
+  <!--v-if-->
+</div>"
+`;

@@ -1,0 +1,14 @@
+// Vitest Snapshot v1
+
+exports[`PokemonOptions Component > debe de hacer match con el snapshot 1`] = `
+"<div class=\\"options-container\\" data-v-39189cb9=\\"\\">
+  <ul data-v-39189cb9=\\"\\">
+    <!-- $emit('selection', id) recibe el id del pokemon-->
+    <!-- v-for=\\"({ name, id }, index) in pokemons\\" -->
+    <li data-v-39189cb9=\\"\\">pikachu</li>
+    <li data-v-39189cb9=\\"\\">charmander</li>
+    <li data-v-39189cb9=\\"\\">venusaur</li>
+    <li data-v-39189cb9=\\"\\">mew</li>
+  </ul>
+</div>"
+`;
