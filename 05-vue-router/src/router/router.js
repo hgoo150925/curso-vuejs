@@ -21,7 +21,7 @@ const routes = [
     // Busco cualquier URL que no haga match con esto
     path: '/:patchMatch(.*)*',
     // LazyLoad
-    component: () => import('../modules/pokemon/pages/NoPageFound.vue'),
+    component: () => import('../modules/shared/pages/NoPageFound.vue'),
   },
 ];
 
