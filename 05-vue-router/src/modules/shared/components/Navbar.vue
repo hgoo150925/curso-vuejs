@@ -1,7 +1,7 @@
 <template>
   <nav>
     <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/id">Pokemon Page</RouterLink>
+    <RouterLink to="/id">Pokemon por id</RouterLink>
     <RouterLink to="/about">About</RouterLink>
   </nav>
 </template>
