@@ -12,9 +12,15 @@ const routes = [
     component: () => import('../modules/pokemon/pages/AboutPage.vue'),
   },
   {
-    path: '/id',
+    path: '/:id',
+    name: 'pokemon-id',
     // LazyLoad
     component: () => import('../modules/pokemon/pages/PokemonPage.vue'),
+    props: route => {
+      const { id } = route.params;
+      const idAttr = Number(id);
+      return isNaN(idAttr) ? { id: 1 } : { id: idAttr };
+    },
   },
 
   {
