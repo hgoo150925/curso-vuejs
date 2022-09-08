@@ -33,6 +33,10 @@ const routes = [
           return isNaN(idAttr) ? { id: 1 } : { id: idAttr };
         },
       },
+      {
+        path: '',
+        redirect: { name: 'pokemon-about' },
+      },
     ],
   },
   /*
