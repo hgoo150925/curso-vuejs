@@ -1,7 +1,10 @@
 <template>
   <nav>
     <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/id">Pokemon por id</RouterLink>
+    <!-- <RouterLink to="/id">Pokemon por id</RouterLink> -->
+    <router-link :to="{ name: 'pokemon-id', params: { id: 85 } }"
+      >Pokemon por id</router-link
+    >
     <RouterLink to="/about">About</RouterLink>
   </nav>
 </template>

@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     // LazyLoad
     component: () => import('../modules/pokemon/pages/ListPage.vue'),
   },
@@ -12,7 +12,7 @@ const routes = [
     component: () => import('../modules/pokemon/pages/AboutPage.vue'),
   },
   {
-    path: '/:id',
+    path: '/pokemonid/:id',
     name: 'pokemon-id',
     // LazyLoad
     component: () => import('../modules/pokemon/pages/PokemonPage.vue'),
@@ -27,7 +27,8 @@ const routes = [
     // Busco cualquier URL que no haga match con esto
     path: '/:patchMatch(.*)*',
     // LazyLoad
-    component: () => import('../modules/shared/pages/NoPageFound.vue'),
+    //component: () => import('../modules/shared/pages/NoPageFound.vue'),
+    redirect: '/home',
   },
 ];
 
