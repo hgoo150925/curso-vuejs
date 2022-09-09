@@ -35,3 +35,9 @@ Esta sección es muy importante para comprender Vuex, el cual es un gestor de es
 - **Modules:** agrupador de state, getters, mutations, actions y otros modulos
 
 - **Store:** contenedor en el que van a estar nuestros diferentes modulos
+
+## ¿Cuando usar Vuex?
+
+Vuex nos ayuda a lidiar con la gestión de estado compartida por el costo de mayor estructura y archivos
+
+Es una compensanción entre la productividad a corto y largo plazo
