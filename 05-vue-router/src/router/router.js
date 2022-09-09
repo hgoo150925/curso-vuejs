@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
+import isAuthenticatedGuard from './auth-guard';
+
 const routes = [
   {
     path: '/',
@@ -44,6 +46,7 @@ const routes = [
   {
     path: '/dbz',
     name: 'dbz',
+    beforeEnter: [isAuthenticatedGuard],
     component: () => import('../modules/dbz/layouts/DragonBallLayout.vue'),
 
     children: [
@@ -137,6 +140,7 @@ const router = createRouter({
 //     })
 // }
 
+// Guard Global - Asincrono
 // router.beforeEach( async(to, from, next) => {
 
 //     const authorized = await canAccess()
