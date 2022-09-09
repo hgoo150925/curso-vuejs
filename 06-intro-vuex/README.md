@@ -33,3 +33,5 @@ Esta sección es muy importante para comprender Vuex, el cual es un gestor de es
 - **Actions:** Funciones que pueden ser asíncronas que también pueden llamar mutations
 
 - **Modules:** agrupador de state, getters, mutations, actions y otros modulos
+
+- **Store:** contenedor en el que van a estar nuestros diferentes modulos
