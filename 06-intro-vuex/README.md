@@ -1,3 +1,7 @@
+# Vuex
+
+[Vuex Link](https://vuex.vuejs.org/)
+
 ## Temas puntuales de la sección
 
 Esta sección esta dedicada a tener una introducción a Vuex, como gestor de estado global de nuestra aplicación, puntualmente veremos:
