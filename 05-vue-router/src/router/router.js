@@ -30,6 +30,7 @@ const routes = [
         props: route => {
           const { id } = route.params;
           const idAttr = Number(id);
+          // Si el id no es un numero retorna el id 1 y si es un numero retorna el id que el user eligio
           return isNaN(idAttr) ? { id: 1 } : { id: idAttr };
         },
       },
@@ -39,6 +40,30 @@ const routes = [
       },
     ],
   },
+  // DBZ
+  {
+    path: '/dbz',
+    name: 'dbz',
+    component: () => import('../modules/dbz/layouts/DragonBallLayout.vue'),
+
+    children: [
+      {
+        path: 'characters',
+        name: 'dbz-characters',
+        component: () => import('../modules/dbz/pages/Characters.vue'),
+      },
+      {
+        path: 'about',
+        name: 'dbz-about',
+        component: () => import('../modules/dbz/pages/About.vue'),
+      },
+      {
+        path: '',
+        redirect: { name: 'dbz-characters' },
+      },
+    ],
+  },
+
   /*
   {
     path: '/home',
@@ -64,6 +89,7 @@ const routes = [
     },
   },
 */
+
   {
     // Busco cualquier URL que no haga match con esto
     path: '/:patchMatch(.*)*',

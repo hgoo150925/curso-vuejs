@@ -18,12 +18,13 @@ export default {
   data() {
     return {
       links: [
+        // navegamos por el name del path que esta en el router
         { to: 'pokemon-home', name: 'Pokemons' },
         { to: 'pokemon-id', name: 'Por ID', id: 151 },
         { to: 'pokemon-about', name: 'About' },
 
-        // { to: 'dbz-characters', name: 'Personajes' },
-        // { to: 'dbz-about', name: 'DBZ-About' },
+        { to: 'dbz-characters', name: 'Personajes' },
+        { to: 'dbz-about', name: 'DBZ-About' },
 
         { to: 'https://google.com', name: 'Google' },
       ],
@@ -35,9 +36,10 @@ export default {
 <style scoped>
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #6fedd6;
   border-radius: 5px;
+  gap: 15px;
 }
 nav a {
   color: #f7f7f7;
