@@ -6,6 +6,7 @@ const isAuthenticatedGuard = async (to, from, next) => {
 
     if (random > 50) {
       console.log('está autenticado');
+      console.log({ to, from, next });
       next();
     } else {
       console.log('bloqueado por el isAuthenticatedGuard', random);

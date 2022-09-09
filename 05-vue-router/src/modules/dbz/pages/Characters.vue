@@ -1,3 +1,3 @@
 <template>
-  <h3>Characters</h3>
+  <h3>Personajes</h3>
 </template>
