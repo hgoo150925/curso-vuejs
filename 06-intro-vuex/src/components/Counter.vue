@@ -5,7 +5,7 @@
 
   <button @click="increment">+1</button>
   <button @click="incrementByArg">+5</button>
-  <button @click="incrementRandomInt">random</button>
+  <button @click="randomInt" :disabled="isLoading">random</button>
 
   <h1>mapState</h1>
   <p>mapState: {{ count }}</p>
@@ -15,7 +15,7 @@
 <script>
 // mapState mapeemos todo lo que necesitemos del state del store
 // mapState regresa propiedades computadas del state
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   //   computed: mapState(['count']),
@@ -25,7 +25,7 @@ export default {
     },
     // mapState regresa propiedades computadas del state
     // Formas distintas de usar el mapState
-    ...mapState(['count', 'lastMutation']),
+    ...mapState(['count', 'lastMutation', 'isLoading']),
     // ...mapState({
     //   counter: state => state.count,
     // }),
@@ -42,10 +42,17 @@ export default {
     incrementByArg() {
       this.$store.commit('incrementBy', 5);
     },
-
-    incrementRandomInt() {
-      this.$store.dispatch('incrementRandomInt');
-    },
+    // ...mapActions(['incrementRandomInt']),
+    // Si tengo un metodo que se llame randomInt puedo hacer lo siguiente:
+    // mapActions habilita todo lo que tengo en los metodos
+    ...mapActions({
+      // randomInt es el nombre que hace referencia a incrementRandomInt
+      // randomInt se coloca en el @click
+      randomInt: 'incrementRandomInt',
+    }),
+    // incrementRandomInt() {
+    //   this.$store.dispatch('incrementRandomInt');
+    // },
   },
 };
 </script>

@@ -25,16 +25,24 @@ export default createStore({
       state.count += value;
       state.lastRandomInt = value;
     },
+    setLoading(state, value) {
+      state.isLoading = value;
+      state.lastMutation = 'setLoading' + value;
+    },
   },
 
   // Funciones que pueden ser asíncronas que también pueden llamar mutations
   // Las acciones cambian el state a traves de una mutations
   actions: {
-    async incrementRandomInt(context) {
+    async incrementRandomInt({ commit }) {
+      // Llamo a la mutations setLoading
+      commit('setLoading', true);
+
       const randomInt = await getRandomInt();
 
-      // Llamo a una mutacion con context
-      context.commit('incrementBy', randomInt);
+      // Llamo a una mutacion con el commit
+      commit('incrementBy', randomInt);
+      commit('setLoading', false);
     },
   },
 });
