@@ -10,18 +10,21 @@
   <h1>mapState</h1>
   <p>mapState: {{ count }}</p>
   <p>lastMutation: {{ lastMutation }}</p>
+
+  <h2>Direct getter: {{ $store.getters.squareCount }}</h2>
+  <button @click="directGetter">square counter</button>
 </template>
 
 <script>
 // mapState mapeemos todo lo que necesitemos del state del store
 // mapState regresa propiedades computadas del state
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
   //   computed: mapState(['count']),
   computed: {
     countComputed() {
-      return this.$store.state.count * 2;
+      return this.$store.state.count;
     },
     // mapState regresa propiedades computadas del state
     // Formas distintas de usar el mapState

@@ -45,4 +45,11 @@ export default createStore({
       commit('setLoading', false);
     },
   },
+
+  getters: {
+    // los getters reciben el argumento del state
+    squareCount(state) {
+      return state.count * state.count;
+    },
+  },
 });
