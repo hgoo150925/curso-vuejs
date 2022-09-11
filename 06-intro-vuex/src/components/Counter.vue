@@ -33,7 +33,10 @@ export default {
     },
     // mapState regresa propiedades computadas del state
     // Formas distintas de usar el mapState
-    ...mapState(['count', 'lastMutation', 'isLoading']),
+    // ...mapState(['count', 'lastMutation', 'isLoading']),
+    // se agrega 'counter' al mapActions para referenciar al nombre del modulo de counter
+    ...mapState('counter', ['count', 'lastMutation', 'isLoading']),
+
     // ...mapState({
     //   counter: state => state.count,
     // }),
@@ -63,6 +66,7 @@ export default {
     //   // randomInt se coloca en el @click
     //   randomInt: 'incrementRandomInt',
     // }),
+    // se agrega 'counter' al mapActions para referenciar al nombre del modulo de counter
     ...mapActions('counter', ['incrementRandomInt']),
   },
 };

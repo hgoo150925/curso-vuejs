@@ -27,7 +27,7 @@ export const counterStore = {
     },
     setLoading(state, value) {
       state.isLoading = value;
-      state.lastMutation = 'setLoading' + value;
+      state.lastMutation = 'setLoading: ' + value;
     },
   },
 
